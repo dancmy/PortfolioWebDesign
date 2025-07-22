@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel's Portfolio</title>
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <!-- Link for fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Link for icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    
+    <!-- Start of nav bar -->
+    <header class="head">
+        <a href="index.html" class="logo">Daniel <span>Chua</span></a>
+            
+        <!-- imported menu from boxicon -->
+        <i class='bx bx-menu' id="menu-icon"></i>
+
+        <nav class="navContainer">
+            <a href="index.html" class="active">Home</a>
+            <a href="edu.html">Education</a>
+            <a href="service.html">Services</a>
+            <a href="test.html">Testimonials</a>
+            <a href="contact.html">Contact</a>
+            <div class="toggleBtn" id="toggleContainer">
+                <span id="toggleText">Dark</span>
+                <img src="assets/moon.png" id="toggleImg">
+            </div>
+        </nav>
+    </header>
+    <!-- End of nav bar -->
+
+    <!-- Popup sticky translator -->
+    <span class="popupSide">Voice Asssitant</span>
+    <div class="popupBox">
+        <span class="popupBoxClose">
+            <i class="fa fa-times" aria-hidden="true"></i>
+        </span>
+        <textarea placeholder="Write Anything Here..." id="speechText"></textarea>
+        <div class="popupRow">
+            <select></select>
+            <button id="speechBtn"><img src="assets/play.png">Listen</button>
+        </div>
+    </div>
+    <!-- End of popup sticky translator -->
+
+    <!-- Service section -->
+    <section class="services" id="services">
+        <h2 class="serviceHeading">My Recent Work</h2>
+    
+        <div class="servicesContainer">
+    
+            <div class="serviceBox">
+                <img src="assets/uiuxProj.png" alt="UI Designer">
+                <div class="serviceInfo">
+                    <h4>HealthSync App</h4>
+                    <p>Crafted user-friendly interfaces for mobile and web apps, enhancing user experience through thoughtful design and usability testing.</p>
+                </div>
+            </div>
+    
+            <div class="serviceBox">
+                <img src="assets/softwareProj.jpg" alt="Web Developer">
+                <div class="serviceInfo">
+                    <h4>InventoryPro</h4>
+                    <p>Developed scalable web applications with a focus on efficiency and user needs, streamlining operations for various businesses.</p>
+                </div>
+            </div>
+    
+            <div class="serviceBox">
+                <img src="assets/gameProj.jpg" alt="Graphic Designer">
+                <div class="serviceInfo">
+                    <h4>SpaceQuest</h4>
+                    <p>Designed and built immersive games using industry-standard engines, delivering engaging and interactive experiences.</p>
+                </div>
+            </div>
+    
+            <div class="serviceBox">
+                <img src="assets/dataProj.jpg" alt="Digital Marketer">
+                <div class="serviceInfo">
+                    <h4>SmartShop Recommender</h4>
+                    <p>Analyzed and interpreted complex datasets to drive business decisions, implementing predictive models to improve outcomes.</p>
+                </div>
+            </div>
+    
+        </div>
+    </section>
+    <!-- End of services section -->
+
+    <!-- Start of footer section -->
+    <footer class="footer">
+
+        <div class="social">
+            <a href="https://www.linkedin.com/login" target="_blank"><i class='bx bxl-linkedin'></i></a>
+            <a href="https://www.instagram.com/accounts/login/?next=%2Fproud.mp%2Ffeed%2F&source=profile_feed_tab" target="_blank"><i class='bx bxl-instagram' ></i></a>
+            <a href="https://x.com/i/flow/login?input_flow_data=%7B%22requested_variant%22%3A%22eyJteCI6IjIifQ%3D%3D%22%7D" target="_blank"><i class='bx bxl-twitter' ></i></a>
+            <a href="https://www.facebook.com/login/" target="_blank"><i class='bx bxl-facebook-circle' ></i></a>
+        </div>
+    
+        <ul class="list">
+            <li>
+                <a href="index.html">About Me</a>
+            </li>
+
+            <li>
+                <a href="edu.html">Education</a>
+            </li>
+    
+            <li>
+                <a href="service.html">Services</a>
+            </li>
+    
+            <li>
+                <a href="contact.html">Contact</a>
+            </li>
+    
+            <li>
+                <a href="test.html">Testimonials</a>
+            </li>
+        </ul>
+    
+        <p class="copyright">
+            © Daniel Chua | All Rights Reserved
+        </p>
+    
+    </footer>
+    <!-- End of footer section -->
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

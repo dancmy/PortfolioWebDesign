@@ -1,0 +1,1257 @@
+/* Global reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensure padding & borders are included in element's total width & height */
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth; /* Enables smooth scrolling when navigating within the page */
+    font-family: "Poppins", sans-serif;
+}
+
+/* Default light mode variables */
+:root 
+{
+    --background: #fff;
+    --text-color: black;
+    --theme-color: #0044FF;
+}
+
+/* Dark mode variables */
+.darkTheme 
+{
+    --background: #222222;
+    --text-color: #fff;
+    --theme-color: #0096FF;
+}
+
+/* Base font size is set to 60% for responsive scaling, and horizontal scrolling is disabled */
+html
+{
+    font-size: 60%;
+    overflow-x: hidden;
+}
+
+/* Smooth transition effects for theme switching (background and text color) */
+body
+{
+    background: var(--background);
+    color: var(--text-color); 
+    transition: background 1.2s, color 1.5s;
+}
+
+/* Nav bar section */
+.head
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2.5rem 12% 2.5rem;
+    display: flex;
+    justify-content: space-between; /* Positions items (logo and nav links) on opposite sides */
+    align-items: center;
+    z-index: 5; /* Ensures nav bar stays above the main content */
+}
+
+/* Header background transition with pseudo-element */
+.head::before
+{
+    content: ''; /* Creates a pseudo-element for the background */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--background);
+    z-index: -1; /* Pushes the background behind the nav content */
+    transition: background 1.2s; /* Smooth transition when switching themes */
+}
+
+/* Ensuring the content is above the pseudo-element */
+.head * 
+{
+    position: relative;
+    z-index: 1;
+} 
+
+/* Daniel Chua logo on top left */
+.logo
+{
+    font-size: 3rem;
+    color: var(--text-color);
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+/* Enlarge logo when hover on it */
+.logo:hover
+{
+    transform: scale(1.1);
+
+}
+
+/* Glowing effect on Chua */
+.logo span
+{
+    text-shadow: 0 0 25px var(--theme-color);
+}
+
+/* Sun & Moon toggle button */
+.navContainer .toggleBtn
+{
+    background: #4864ff;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    width: 150px;
+    height: 40px;
+    margin-left: 4rem;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.navContainer .toggleBtn span
+{
+    color: var(--text-color);
+}
+
+.navContainer .toggleBtn img
+{
+    width: 25px;
+    margin-left: 10px;
+
+}
+
+.navContainer 
+{
+    display: flex;
+    align-items: center;
+}
+
+.navContainer a 
+{
+    font-size: 1.8rem;
+    color: var(--text-color);
+    margin-left: 4rem;
+    font-weight: 700;
+    transition: 0.3s ease;
+    border-bottom: 3px solid transparent;
+    display: flex;
+    align-items: center; /* Ensures text within the links is centered vertically */
+}
+
+.navContainer a:hover
+{
+    color: var(--theme-color); /* Text changes colour when hovered on */
+}
+
+.navContainer a.active
+{
+    color: var(--theme-color); /* Text changes colour when hovered on */
+    text-decoration: underline;
+}
+
+/* Add background when the nav menu becomes active */
+.navContainer.active 
+{
+    background-color: var(--background); /* A semi-transparent black background */
+}
+
+/* Hamburger icon (for mobile view), hidden on larger screens */
+#menu-icon
+{
+    font-size: 3.6rem;
+    color: var(--theme-color);
+    display: none; /* Initially hidden, appears in mobile view */
+    cursor: pointer;
+}
+/*End of nav bar*/
+
+
+
+/* Sticky popup */
+.popupSide
+{
+    position: fixed;
+    right: -72px;
+    top: 50%;
+    background-color: #0096FF;
+    color: #fff;
+    font-size: 18px;
+    letter-spacing: 2px;
+    padding: 15px 22px;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    transform: translateY(-50%) rotate(90deg);
+    border-radius: 0 0 5px 5px;
+    z-index: 100;
+}
+
+.popupSide:hover
+{
+    color: #fff;
+    text-decoration: none;
+    background-color: #0077B6;
+}
+
+.popupBox
+{
+    position: fixed;
+    right: 0;
+    bottom: 30px;
+    width: 500px;
+    z-index: 1000;
+    padding: 25px;
+    /* background: #0096FF; */
+    background: var(--theme-color);
+    color: #fff;
+    border-radius: 0 0 0 10px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    min-height: 250px;
+    transform: translateX(120%);
+}
+
+/* Smooth slide-in effect when the popup becomes active */
+.popupBox.active
+{
+    transform: translateX(0%); /* Moves the popup into view from the right */
+} 
+
+.popupBoxClose
+{
+    position: absolute;
+    right: 100%; /* Places the close button outside the popup, to the left */
+    top: 0;
+    color: black;
+    cursor: pointer;
+    font-size: 30px;
+    background: var(--theme-color);
+    padding: 0 5px;
+    border-radius: 3px 0 0 3px;
+    box-shadow: -2px 0 3px rgba(0, 0, 0, 0.5);
+}
+
+.popupBox textarea
+{
+    width: 450px;
+    height: 200px;
+    background-color: white;
+    color: black;
+    font-size: 15px;
+    border: 0;
+    outline: 0;
+    padding: 20px;
+    border-radius: 10px;
+    resize: none;
+    margin: 5px 0 20px 0;
+}
+
+.popupRow
+{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.popupRow button
+{
+    background: black;
+    color: #fff;
+    font-size: 16px;
+    height: 50px;
+    padding: 10px 30px;
+    border-radius: 35px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.popupRow button img
+{
+    width: 13px;
+    margin-right: 5px;
+}
+
+.popupRow select
+{
+    flex-grow: 1;
+    color: #fff;
+    background: black;
+    height: 50px;
+    padding: 0 20px;
+    outline: 0;
+    border: 0;
+    border-radius: 35px;
+    appearance: none;
+    background-image: url(assets/dropdown.png);
+    background-repeat: no-repeat;
+    background-size: 15px;
+    background-position-x: calc(100% - 10px);
+    background-position-y: 20px;
+}
+/* End of sticky popup */
+
+
+
+/*Home section*/
+section
+{
+    min-height: 100vh;
+    padding: 10rem 12% 10rem;
+}
+
+.home
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15rem;
+
+    position: relative;
+    overflow: hidden; /* Prevent child elements from overflowing outside */
+}
+
+.homeContent
+{
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    text-align: left;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.logo span
+{
+    color: var(--theme-color);
+}
+
+.homeContent h1
+{
+    color: var(--text-color);
+    font-size: 7rem;
+    font-weight: 700;
+    margin-top: 10rem;
+    line-height: 1;
+}
+
+.homeContent h3
+{
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+    font-size: 3.5rem;
+}
+
+.homeImg img
+{
+    width: 400px;
+    display: block;
+}
+
+.homeImg
+{
+    position: relative;
+    bottom: 0;
+    right: 0;
+}
+
+.pattern
+{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    display: flex;
+    transform: rotate(40deg);
+    z-index: -1; /* Places the pattern behind guy */
+}
+
+.pattern img
+{
+    width: 450px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: move 1s linear infinite alternate-reverse;
+}
+
+.pattern img:nth-child(1)
+{
+    transform: rotate(-45deg) translate(-70px, -50px);
+    animation-delay: 0.5s;
+}
+
+.pattern img:nth-child(2)
+{
+    transform: rotate(65deg) translate(0px, -40px) scale(.8);
+    animation-delay: 1.5s;
+}
+
+@keyframes move
+{
+    100%
+    {
+        margin-left: 40px;
+        margin-top: 20px;
+        opacity: 0.3;
+    }
+}
+
+.homeContent p
+{
+    color: var(--text-color);
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.8;
+    max-width: 1000px;
+}
+
+
+.socialIcons a
+{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4.5rem;
+    height: 4.5rem;
+    background: transparent;
+    border: 2px solid var(--theme-color);
+    font-size: 2.5rem;
+    border-radius: 50%;
+    color: var(--theme-color);
+    margin: 3rem 1.5rem 3rem 0;
+    transition: 0.3s ease-in-out;
+}
+
+.socialIcons a:hover
+{
+    color: var(--text-color);
+    transform: scale(1.2)translateY(-8px);
+    box-shadow: 0 0 20px var(--theme-color);
+    background-color: var(--theme-color);
+}
+
+.btnContainer
+{
+    display: flex;
+    align-items: center; 
+}
+
+.btnContainer a
+{
+    background-color: var(--background);
+    color: var(--theme-color);
+    border: 2px solid var(--theme-color);
+    box-shadow: 0 0 25px transparent;
+}
+
+.btnContainer a:hover
+{
+    color: var(--background);
+    box-shadow: 0 0 50px var(--theme-color);
+    background-color: var(--theme-color);
+}
+
+.btn
+{
+    display: inline-block;
+    padding: 1.5rem 3rem;
+    background: var(--theme-color);
+    box-shadow: 0 0 25px var(--theme-color);
+    border-radius: 4rem;
+    width: 20rem;
+    text-align: center;
+    font-size: 1.6rem;
+    color: black;
+    border: 2px solid transparent;
+    letter-spacing: 0.1rem;
+    font-weight: 700;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.btn:hover
+{
+    transform: scale(1.05);
+    box-shadow: 0 0 50px var(--theme-color);
+}
+
+.textAnimation
+{
+    font-size: 34px;
+    font-weight: 600;
+    min-width: 280px;
+}
+
+.textAnimation span
+{
+    position: relative;
+}
+
+.textAnimation span::before
+{
+    content: "Cotton Picker";
+    color: var(--theme-color);
+    animation: words 20s infinite;
+}
+
+.textAnimation span::after
+{
+    content: "";
+    background-color: var(--background);
+    position: absolute;
+    width: calc(100% + 8px);
+    height: 100%;
+    border-left: 3px solid var(--background);
+    right: -8px;
+    animation: cursor 0.6s infinite, typing 20s steps(14) infinite;
+}
+
+/* Keyframes for cursor blinking effect */
+@keyframes cursor
+{
+    to
+    {
+        /* Creates a blinking effect by toggling the visibility of the border */
+        border-left: 2px solid var(--theme-color);
+    }
+}
+
+/* Keyframes for changing the displayed text at intervals */
+@keyframes words
+{
+    /* Web Developer appears from 0% to 20% */
+    0%,
+    20%
+    {
+        content: "Web Developer";
+    }
+
+    /* UI / UX Designer appears from 21% to 40% */
+    21%,
+    40%
+    {
+        content: "UI / UX Designer";
+    }
+
+    /* Software Engineer appears from 41% to 60% */
+    41%,
+    60%
+    {
+        content: "Software Engineer";
+    }
+
+    /* Data Scientist appears from 61% to 80% */
+    61%,
+    80%
+    {
+        content: "Data Scientist";
+    }
+
+    /* Game Developer appears from 81% to 100% */
+    81%,
+    100%
+    {
+        content: "Game Developer";
+    }
+}
+
+/* Keyframes for typing effect simulation */
+@keyframes typing
+{
+     /* During these intervals, width of text box is set to 0, as if it's being erased */
+    10%,
+    15%,
+    30%,
+    35%,
+    50%,
+    55%,
+    70%,
+    75%,
+    90%,
+    95%
+    {
+        /* Erases text by setting width to 0 */
+        width: 0;
+    }
+
+    /* During these intervals, width expands, simulating text being typed out */
+    5%,
+    20%,
+    25%,
+    40%,
+    45%,
+    60%,
+    65%,
+    80%,
+    85%
+    {
+        /* Expands width to fully display text */
+        width: calc(100% + 8px);
+    }
+}
+/*End of home section*/
+
+
+
+/*Education section*/
+.edu
+{
+    padding: 100px 15px;
+}
+
+.eduHeading
+{
+    font-size: 8rem;
+    text-align: center;
+    margin: 5rem 0;
+}
+
+.edu h2
+{
+    margin-bottom: 5rem;
+}
+
+.timeItems
+{
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+/* Adds a vertical line between timeline items */
+.timeItems::before
+{
+    content: ""; /* Creates an empty pseudo-element for the line */
+    position: absolute;
+    width: 5px;
+    height: 100%;
+    background-color: var(--theme-color);
+    left: calc(50% - 1px); /* Centers the line horizontally in the middle of the timeline */
+}
+
+.timeItem
+{
+    margin-bottom: 40px;
+    width: 100%;
+    position: relative;
+}
+
+/* Removes bottom margin from last timeline item */
+.timeItem:last-child 
+{
+    margin-bottom: 0; /* No extra space after the last item */
+}
+
+
+/* For odd-numbered timeline items: */
+.timeItem:nth-child(odd) 
+{
+    padding-right: calc(50% + 30px); /* Adds space to the right for text alignment */
+    text-align: right; /* Aligns the text to the right for odd items */
+}
+
+
+/* For even-numbered timeline items: */
+.timeItem:nth-child(even) 
+{
+    padding-left: calc(50% + 30px); /* Adds space to the left for text alignment */
+}
+
+/* Ensures text within odd timeline content is aligned to the left */
+.timeContent:nth-child(odd) 
+{
+    text-align: left; /* Text within odd items is aligned to the left */
+}
+
+/* Styles for the dot on the timeline */
+.timeDot
+{
+    height: 21px;
+    width: 21px;
+    background-color: var(--theme-color);
+    box-shadow: 0 0 25px var(--theme-color),
+                0 0 50px var(--theme-color) ;
+    position: absolute;
+    left: calc(50% - 8px); /* Centers dot on timeline */
+    border-radius: 50%;
+    top: 10px;
+}
+
+.timeDate
+{
+    font-size: 20px;
+    font-weight: 800;
+    color: white;
+    margin: 6px 0 15px;
+}
+
+.timeContent
+{
+    background-color: var(--background);
+    border: 3px solid var(--theme-color);
+    padding: 30px 50px;
+    border-radius: 15rem;
+    box-shadow: 0 0 10px var(--theme-color);
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.timeContent:hover
+{
+    transform: scale(1.05);
+    box-shadow: 0 0 25px var(--theme-color);
+}
+
+.timeContent h3
+{
+    font-size: 20px;
+
+    color: var(--text-color);
+    margin: 0 0 10px;
+    font-weight: 750;
+}
+
+.timeContent p
+{
+    color: var(--text-color);
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 22px;
+}
+/* End of education section */
+
+
+
+/* Service section */
+.serviceHeading 
+{
+    font-size: 8rem;
+    text-align: center;
+    margin: 5rem 0;
+    color: var(--text-color);
+}
+
+.services 
+{
+    color: var(--text-color);
+}
+
+.servicesContainer 
+{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.serviceBox 
+{
+    position: relative;
+    height: 300px;
+    border-radius: 3rem;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.serviceBox img 
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease-in-out; /* Smooth transition for image zoom effect */
+}
+
+.serviceBox:hover img 
+{
+    transform: scale(1.1); /* Slight zoom effect on hover */
+    opacity: 0.5; /* Reduced opacity to make text clearer */
+
+}
+
+.serviceBox .serviceInfo 
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.serviceBox:hover .serviceInfo 
+{
+    opacity: 1;
+}
+
+.serviceInfo h4 
+{
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.serviceInfo p 
+{
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1.7;
+    color: var(--text-color);
+}
+/* End of service section */
+
+
+
+/* Testimonials section */
+.testHeading
+{
+    font-size: 8rem;
+    text-align: center;
+    margin: 5rem 0;
+}
+
+.tests .testHeading
+{
+    margin-bottom: 5rem;
+}
+
+.testBox
+{
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.testBox img 
+{
+    width: 15rem;
+    height: 15rem; 
+    border-radius: 50%;
+    border: 3px solid var(--theme-color);
+    box-shadow: 0 0 25px var(--theme-color);
+    object-fit: cover; /* Ensures image is scaled to fill container */
+}
+
+.testWrapper
+{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+}
+
+.testItem
+{
+    min-height: 550px;
+    max-width: 450px;
+    background: rgba(0,0,0,0.7);
+    border: 3px solid rgba(238, 238, 238, 0.2);
+    border-radius: 2rem;
+    margin: 0 2rem;
+    padding: 30px 60px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 1.5rem;
+    color: white;
+    transition: 0.4s ease-in-out;
+}
+
+.testItem:hover
+{
+    border: 3px solid var(--theme-color);
+    transform: translateY(-10px)scale(1.03);
+    box-shadow: 0 0 50px var(--theme-color);
+}
+
+.testItem h2
+{
+    font-size: 2rem;
+}
+
+.testItem p
+{
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+#star
+{
+    color: gold;
+    font-size: 2rem;
+}
+/* End of testimonial section */
+
+
+
+/* Contact section */
+.contactHeading
+{
+    font-size: 8rem;
+    text-align: center;
+    margin: 5rem 0;
+}
+
+.contact h2
+{
+    margin-bottom: 3rem;
+    color: var(--text-color);
+}
+
+.contact form
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    margin: 5rem auto;
+    text-align: center;
+}
+
+.contact form .inputBox
+{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.contact form .inputBox input,
+.contact form textarea
+{
+    width: 100%;
+    padding: 2.5rem;
+    font-size: 1.8rem;
+    color: var(--text-color);
+    background: var(--background);
+    border: 2px solid var(--theme-color);
+    border-radius: 2rem;
+    margin: 1.5rem 0;
+    resize: none;
+}
+
+.contact form .btn
+{
+    margin-top: 1rem;
+}
+
+.inputGrp,
+.inputGrp2 
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+}
+
+.contact form .inputGrp,
+.contact form .inputGrp2 
+{
+    flex: 1; 
+}
+
+.contact form .inputGrp2 textarea 
+{
+    flex: 1; 
+    min-height: 100%; 
+    padding: 2.5rem; 
+    margin: 1.5rem 0; 
+}
+
+.contact form 
+{
+    align-items: flex-start; 
+}
+
+.contact .btn
+{
+    color: var(--text-color);
+}
+/* End of contact section */
+
+
+
+/* Footer section */
+.footer
+{
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    padding: 40px 0;
+}
+
+.footer .social
+{
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+.footer .social a
+{
+    font-size: 25px;
+    color: var(--theme-color);
+    border: 2px solid var(--theme-color);
+    width: 42px;
+    height: 42px;
+    line-height: 42px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    margin: 0 10px;
+    transition: 0.3s ease-in-out;
+}
+
+.footer .social a:hover
+{
+    transform: scale(1.1) translateY(-5px);
+    background-color: var(--theme-color);
+    color: black;
+    box-shadow: 0 0 25px var(--theme-color);
+}
+
+.footer ul li
+{
+    display: inline-block;
+    padding: 0 15px;
+}
+
+.footer ul
+{
+    /*margin-top: 0;*/
+    padding: 0;
+    font-size: 18px;
+    line-height: 1.6;
+    /*margin-bottom: 0;*/
+    text-align: center;
+}
+
+.footer ul li a
+{
+    color: var(--text-color);
+    border-bottom: 3px solid transparent;
+    transition: 0.3 ease-in-out;
+}
+
+.footer ul li a:hover
+{
+    border-bottom: 3px solid var(--theme-color);
+}
+
+.footer .copyright
+{
+    margin-top: 50px;
+    text-align: center;
+    font-size: 16px;
+    color: var(--text-color);
+}
+/* End of footer section */
+
+
+
+/* Resizing section */
+@media(max-width: 1285px)
+{
+    html
+    {
+        font-size: 55%;
+    }
+    .servicesContainer
+    {
+        padding-bottom: 7rem;
+        grid-template-columns: repeat(2, 1fr);
+        margin: 0 5rem;
+    }
+}
+
+@media(max-width: 991px)
+{
+    header
+    {
+        padding: 2rem 3%;
+    }
+    section
+    {
+        padding: 10rem 3% 2rem;
+    }
+    .timeItems::before
+    {
+        left: 7px;
+    }
+    .timeItem:nth-child(odd)
+    {
+        padding-right: 0;
+        text-align: left;
+    }
+    .timeItem:nth-child(odd),
+    .timeItem:nth-child(even)
+    {
+        padding-left: 37px;
+    }
+    .timeDot
+    {
+        left: 0;
+    }
+    .services
+    {
+        padding-bottom: 7rem;
+    }
+
+    .tests .testWrapper
+    {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .contact form
+    {
+        flex-direction: column;
+    }
+
+    .footer
+    {
+        padding: 2rem 3%;
+    }
+
+    .contact form 
+    {
+        flex-direction: column;
+        align-items: center; 
+    }
+    
+    .contact form .inputBox,
+    .contact form .inputGrp2 
+    {
+        width: 100%; 
+        max-width: 600px; 
+        margin: 0 auto; 
+    }
+    
+    .contact form .inputGrp2 textarea 
+    {
+        width: 100%; 
+        margin-left: 0; 
+    }
+}
+
+
+@media(max-width: 895px)
+{
+    #menu-icon
+    {
+        display: block;
+    }
+
+    .navContainer
+    {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 50%;
+        padding: 1rem 3%;
+        border-bottom-left-radius: 2rem;
+        border-left: 2px solid var(--theme-color);
+        border-bottom: 2px solid var(--theme-color);
+        display: none;
+    }
+
+    .navContainer.active
+    {
+        display: block;
+    }
+
+    .navContainer a
+    {
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+        color: var(--text-color);
+    }
+
+    .home
+    {
+        flex-direction: column-reverse;
+        margin: 5rem 4rem;
+    }
+
+    .homeContent h3
+    {
+        font-size: 2.6rem;
+    }
+
+    .homeContent h1
+    {
+        font-size: 8rem;
+        margin-top: 3rem;
+    }
+
+    .homeContent p
+    {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .homeImg img
+    {
+        width: 56vw;
+    }
+
+    .services h2
+    {
+        margin-bottom: 3rem;
+    }
+
+    .servicesContainer
+    {
+        grid-template-columns: repeat(1,1fr);
+    }
+
+    .popupBox 
+    {
+        width: 300px;
+        padding: 10px;
+    }
+
+    .popupBox textarea 
+    {
+        width: 250px;
+        height: 120px;
+        margin-left: 2rem;
+        margin-top: 1rem;
+    }
+
+    .popupRow 
+    {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .popupRow select, .popupRow button 
+    {
+        width: 100%;
+        text-align: center;
+    }
+
+    .popupRow button img 
+    {
+        margin-right: 1rem;
+    }
+}

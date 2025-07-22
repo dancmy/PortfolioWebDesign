@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel's Portfolio</title>
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <!-- Link for fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Link for icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    
+    <!-- Start of nav bar -->
+    <header class="head">
+        <a href="index.html" class="logo">Daniel <span>Chua</span></a>
+            
+        <!-- imported menu from boxicon -->
+        <i class='bx bx-menu' id="menu-icon"></i>
+
+        <nav class="navContainer">
+            <a href="index.html" class="active">Home</a>
+            <a href="edu.html">Education</a>
+            <a href="service.html">Services</a>
+            <a href="test.html">Testimonials</a>
+            <a href="contact.html">Contact</a>
+            <div class="toggleBtn" id="toggleContainer">
+                <span id="toggleText">Dark</span>
+                <img src="assets/moon.png" id="toggleImg">
+            </div>
+        </nav>
+    </header>
+    <!-- End of nav bar -->
+
+    <!-- Popup sticky translator -->
+    <span class="popupSide">Voice Asssitant</span>
+    <div class="popupBox">
+        <span class="popupBoxClose">
+            <i class="fa fa-times" aria-hidden="true"></i>
+        </span>
+        <textarea placeholder="Write Anything Here..." id="speechText"></textarea>
+        <div class="popupRow">
+            <select></select>
+            <button id="speechBtn"><img src="assets/play.png">Listen</button>
+        </div>
+    </div>
+    <!-- End of popup sticky translator -->
+
+    <!-- Start of education content -->
+    <section class="edu" id="edu">
+        <h2 class="eduHeading">Education & Jobs</h2>
+
+        <div class="timeItems">
+
+            <div class="timeItem">
+                <div class="timeDot"></div>
+                <div class="timeDate">2023</div>
+                <div class="timeContent">
+                    <h3>Bachelor of Computer Science - Singapore Institute of Management (SIM)</h3>
+                    <p>Specialized in Artificial Intelligence and Machine Learning. Awarded the Dean's List Scholarship for outstanding academic performance. Completed a capstone project on AI-driven predictive analytics, which was recognized in regional tech competitions.</p>
+                </div>
+            </div>
+
+            <div class="timeItem">
+                <div class="timeDot"></div>
+                <div class="timeDate">2026-2029</div>
+                <div class="timeContent">
+                    <h3>Software Engineer - Google AI, Singapore</h3>
+                    <p>Developed and optimized machine learning algorithms for large-scale data processing. Led a team in the creation of a real-time language translation service integrated into Google products, significantly improving accuracy and processing speed.</p>
+                </div>
+            </div>
+
+            <div class="timeItem">
+                <div class="timeDot"></div>
+                <div class="timeDate">2030 - 2033</div>
+                <div class="timeContent">
+                    <h3>Lead Data Scientist - Tesla, Global Operations</h3>
+                    <p>Dived deep into specialized subjects, gaining hands-on experience and practical knowledge in engineering. Collaborated on multiple projects that simulated real-world scenarios, further honing technical skills and fostering a collaborative spirit.</p>
+                </div>
+            </div>
+
+            <div class="timeItem">
+                <div class="timeDot"></div>
+                <div class="timeDate">2034</div>
+                <div class="timeContent">
+                    <h3>Awarded for Innovating AI-Driven Cybersecurity Solutions</h3>
+                    <p>Honored for developing AI systems that enhance predictive threat detection and improve real-time defense in cybersecurity.</p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <!-- End of education content -->
+
+    <!-- Start of footer section -->
+    <footer class="footer">
+
+        <div class="social">
+            <a href="https://www.linkedin.com/login" target="_blank"><i class='bx bxl-linkedin'></i></a>
+            <a href="https://www.instagram.com/accounts/login/?next=%2Fproud.mp%2Ffeed%2F&source=profile_feed_tab" target="_blank"><i class='bx bxl-instagram' ></i></a>
+            <a href="https://x.com/i/flow/login?input_flow_data=%7B%22requested_variant%22%3A%22eyJteCI6IjIifQ%3D%3D%22%7D" target="_blank"><i class='bx bxl-twitter' ></i></a>
+            <a href="https://www.facebook.com/login/" target="_blank"><i class='bx bxl-facebook-circle' ></i></a>
+        </div>
+    
+        <ul class="list">
+            <li>
+                <a href="index.html">About Me</a>
+            </li>
+
+            <li>
+                <a href="edu.html">Education</a>
+            </li>
+    
+            <li>
+                <a href="service.html">Services</a>
+            </li>
+    
+            <li>
+                <a href="contact.html">Contact</a>
+            </li>
+    
+            <li>
+                <a href="test.html">Testimonials</a>
+            </li>
+        </ul>
+    
+        <p class="copyright">
+            © Daniel Chua | All Rights Reserved
+        </p>
+    
+    </footer>
+    <!-- End of footer section -->
+
+    <script src="script.js"></script>
+
+</body>
+</html>
